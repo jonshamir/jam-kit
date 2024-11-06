@@ -14,7 +14,7 @@ import type {
   Team,
 } from "../../types";
 
-export function getDatabaseClient() {
+function getDatabaseClient() {
   return createDatabaseClient(
     PUBLIC_SUPABASE_URL,
     PRIVATE_SUPABASE_SERVICE_KEY
