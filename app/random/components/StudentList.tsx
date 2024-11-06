@@ -22,7 +22,6 @@ export default function StudentList({
   animate,
 }: Props) {
   const currentTeamSelected = currentTeamMembers.length > 0;
-  console.log(currentTeamSelected);
   return (
     <>
       <div className={styles.studentGrid}>

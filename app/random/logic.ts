@@ -46,33 +46,29 @@ export function makeTeamDistribution(
 ) {
   // this is not a generic algorithm to create team shapes!
   // Assumptions:
-  // - ideal team is 2 x 2
-  // - always want 2+ devs in a team
-  // - there are less devs than designers
-  const developersIsEven = developerCount % 2 === 0;
-  const teamCount = developersIsEven
-    ? developerCount / 2
-    : (developerCount - 1) / 2;
-  const developerTeamTarget = 2;
+  // - ideal team is 3 x 3
+  // - always want 3+ devs in a team
+  const teamCount = Math.floor(developerCount / 3);
+  const developerTeamTarget = 3;
   const designerTeamTarget = Math.floor(designerCount / teamCount);
   const designerTeamExtraCount = designerCount - teamCount * designerTeamTarget;
   const distribution = Array(teamCount)
     .fill({})
-    .map((t, idx, arr) => {
+    .map((_, i, arr) => {
       // standard team
       const team = {
         developerCount: developerTeamTarget,
         designerCount: designerTeamTarget,
       };
       // developer distribution maybe adjusted
-      if (idx + 1 === arr.length && !developersIsEven)
+      if (i + 1 === arr.length && developerCount % 3 !== 0)
         team.developerCount = developerTeamTarget + 1;
       // designer distribution maybe adjusted
-      if (idx + 1 > arr.length - designerTeamExtraCount)
+      if (i + 1 > arr.length - designerTeamExtraCount)
         team.designerCount = designerTeamTarget + 1;
       return team;
     });
-  return distribution;
+  return shuffle(distribution);
 }
 
 function selectDesigners(

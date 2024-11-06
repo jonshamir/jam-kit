@@ -1,5 +1,9 @@
-import { SUPABASE_ENABLED } from "@/lib/config";
-import { getDatabaseClient } from "@/lib/utils/server";
+import {
+  SUPABASE_ENABLED,
+  PRIVATE_SUPABASE_SERVICE_KEY,
+  PUBLIC_SUPABASE_URL,
+} from "@/lib/config";
+import { createClient as createDatabaseClient } from "@supabase/supabase-js";
 import { type NextRequest } from "next/server";
 import { makeTeamDistribution } from "../../logic";
 import type {
@@ -9,6 +13,13 @@ import type {
   Student,
   Team,
 } from "../../types";
+
+export function getDatabaseClient() {
+  return createDatabaseClient(
+    PUBLIC_SUPABASE_URL,
+    PRIVATE_SUPABASE_SERVICE_KEY
+  );
+}
 
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";

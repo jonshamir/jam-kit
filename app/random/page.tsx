@@ -1,12 +1,7 @@
 "use client";
 
 import styles from "./page.module.css";
-import {
-  PRIVATE_SUPABASE_SERVICE_KEY,
-  PUBLIC_SUPABASE_ANON_KEY,
-  PUBLIC_SUPABASE_URL,
-  SUPABASE_ENABLED,
-} from "@/lib/config";
+import { SUPABASE_ENABLED } from "@/lib/config";
 import { useState } from "react";
 import Message from "./components/Message";
 import { getCurrentComponent } from "./utils";
@@ -30,7 +25,7 @@ function RandomApp() {
   const [currentTeamMembers, setCurrentTeamMembers] = useState<number[]>([]);
 
   if (!SUPABASE_ENABLED)
-    return <Message content={PRIVATE_SUPABASE_SERVICE_KEY} />;
+    return <Message content="Missing Supabase environment variables" />;
   if (dataLoading) return <Message content="טוען..." />;
   if (dataError) return <Message content="שגיאה" />;
   if (!data) return <Message content="לא ניתן לטעון את המידע" />;
