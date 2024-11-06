@@ -50,12 +50,12 @@ export default function ContactForm() {
             required form fields.
           </li>
           <li>
-            This form renders on the client, and, submits the form data to a
+            This form renders on the client and submits the form data to a
             server API endpoint.
           </li>
           <li>
             The server API endpoint receives the form data and uses it to send
-            an email sends an email.
+            an email.
           </li>
           <li>
             After the email send is handled, the server API endpoint returns
@@ -63,11 +63,11 @@ export default function ContactForm() {
           </li>
           <li>
             When the client receives the response from the server, it renders
-            the response in the UI.
+            the response to the UI.
           </li>
         </ul>
       </div>
-      <h1>Send a message</h1>
+      <h2>Send a message</h2>
       {submissionResponse ? (
         <div className="center">{submissionResponse.message}</div>
       ) : (

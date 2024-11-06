@@ -47,16 +47,21 @@ export default function Login({
   return (
     <div className="content">
       <form className={styles.loginForm} action={signIn}>
-        <label htmlFor="email">Email</label>
-        <input name="email" placeholder="you@example.com" required />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          placeholder="••••••••"
-          required
-        />
-        <button>Sign In</button>
+        <label htmlFor="email">
+          Email <input name="email" placeholder="you@example.com" required />
+        </label>
+
+        <label htmlFor="password">
+          Password{" "}
+          <input
+            type="password"
+            name="password"
+            placeholder="••••••••"
+            required
+          />
+        </label>
+
+        <button>Log In</button>
         {/* <button formAction={signUp}>Sign Up</button> */}
         {searchParams?.message && (
           <p className={styles.errorMessage}>{searchParams.message}</p>

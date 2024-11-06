@@ -13,13 +13,20 @@ export default function Elements() {
               <a href="#text">Text</a>
             </strong>
             <br />
-            <a href="#text__headings">Headings</a> ·
-            <a href="#text__paragraphs">Paragraphs</a> ·
-            <a href="#text__blockquotes">Blockquotes</a> ·
-            <a href="#text__lists">Lists</a> ·
-            <a href="#text__hr">Horizontal rules</a> ·
-            <a href="#text__tables">Tabular data</a> ·
-            <a href="#text__code">Code</a> ·
+            <a href="#text__headings">Headings</a>
+            {" · "}
+            <a href="#text__paragraphs">Paragraphs</a>
+            {" · "}
+            <a href="#text__blockquotes">Blockquotes</a>
+            {" · "}
+            <a href="#text__lists">Lists</a>
+            {" · "}
+            <a href="#text__hr">Horizontal rules</a>
+            {" · "}
+            <a href="#text__tables">Tabular data</a>
+            {" · "}
+            <a href="#text__code">Code</a>
+            {" · "}
             <a href="#text__inline">Inline elements</a>
           </li>
           <li>
@@ -27,11 +34,16 @@ export default function Elements() {
               <a href="#embedded">Embedded content</a>
             </strong>
             <br />
-            <a href="#embedded__images">Images</a> ·
-            <a href="#embedded__audio">Audio</a> ·
-            <a href="#embedded__video">Video</a> ·
-            <a href="#embedded__meter">Meter</a> ·
-            <a href="#embedded__progress">Progress</a> ·
+            <a href="#embedded__images">Images</a>
+            {" · "}
+            <a href="#embedded__audio">Audio</a>
+            {" · "}
+            <a href="#embedded__video">Video</a>
+            {" · "}
+            <a href="#embedded__meter">Meter</a>
+            {" · "}
+            <a href="#embedded__progress">Progress</a>
+            {" · "}
             <a href="#embedded__svg">Inline SVG</a>
           </li>
           <li>
@@ -39,12 +51,18 @@ export default function Elements() {
               <a href="#forms">Form elements</a>
             </strong>
             <br />
-            <a href="#forms__input">Input fields</a> ·
-            <a href="#forms__select">Select menus</a> ·
-            <a href="#forms__checkbox">Checkboxes</a> ·
-            <a href="#forms__radio">Radio buttons</a> ·
-            <a href="#forms__textareas">Textareas</a> ·
-            <a href="#forms__html5">HTML5 inputs</a> ·
+            <a href="#forms__input">Input fields</a>
+            {" · "}
+            <a href="#forms__select">Select menus</a>
+            {" · "}
+            <a href="#forms__checkbox">Checkboxes</a>
+            {" · "}
+            <a href="#forms__radio">Radio buttons</a>
+            {" · "}
+            <a href="#forms__textareas">Textareas</a>
+            {" · "}
+            <a href="#forms__html5">HTML5 inputs</a>
+            {" · "}
             <a href="#forms__action">Action buttons</a>
           </li>
         </ul>

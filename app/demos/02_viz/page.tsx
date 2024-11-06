@@ -1,38 +1,5 @@
-import { BudgetChart } from "./components/charts";
-
-interface RawDataRow {
-  code: string;
-  parent: string;
-  func_cls_title_1: string[];
-  func_cls_title_2: string[];
-  net_allocated: number;
-}
-
-interface RawData {
-  rows: RawDataRow[];
-}
-
-const dataQuery = encodeURIComponent(
-  "SELECT code, parent, func_cls_title_1, func_cls_title_2, net_allocated FROM raw_budget WHERE code LIKE 'C8%' AND length(code)=4 AND year=2023"
-);
-const dataEndpoint = `https://next.obudget.org/api/query?query=${dataQuery}`;
-
-async function getRawData(): Promise<RawData> {
-  const res = await fetch(dataEndpoint);
-  return res.json();
-}
-
-async function getDataForChart() {
-  const rawData = await getRawData();
-  const data = rawData.rows.map((item: RawDataRow) => {
-    return {
-      name: item.func_cls_title_2[0],
-      code: item.code,
-      amount: item.net_allocated,
-    };
-  });
-  return data;
-}
+import { BudgetChart } from "./components/BudgetChart";
+import { getDataForChart } from "./utils";
 
 export default async function Viz() {
   const data = await getDataForChart();
@@ -63,7 +30,8 @@ export default async function Viz() {
           </li>
         </ul>
       </div>
-      <h1>Israel&apos;s 2023 Budget - Income</h1>
+      <h2>Israel&apos;s 2023 Budget - Income</h2>
+      <br />
       <div>
         <BudgetChart data={data} xKey="name" yKey="amount" />
       </div>

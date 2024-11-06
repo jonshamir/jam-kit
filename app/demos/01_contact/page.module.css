@@ -1,8 +1,16 @@
 .contactForm {
   width: 100%;
-  max-width: 48rem; /* Or whatever width you prefer */
   margin: auto;
   padding: 0.5rem;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contactForm button {
+  padding: 0.5rem;
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  cursor: pointer;
 }

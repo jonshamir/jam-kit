@@ -10,7 +10,7 @@ export default function Demos() {
           <h2>{demo.title}</h2>
           <p>{demo.description}</p>
           <Link className="button" href={demo.slug}>
-            See it
+            See it →
           </Link>
         </div>
       ))}

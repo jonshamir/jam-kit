@@ -1,5 +1,4 @@
-import "@/styles/main.css";
-import "@/globals.css";
+import "@/styles/global.css";
 
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
@@ -15,6 +14,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html>
+      <head>
+        <link rel="icon" href="/favicon.png" />
+      </head>
       <body>
         <Navbar />
         <div>{children}</div>

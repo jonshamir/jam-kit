@@ -1,6 +1,16 @@
-'use client';
+"use client";
 
-import { Bar, BarChart, CartesianGrid, Legend, Rectangle, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Rectangle,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
+import { formatShekels } from "../utils";
 
 interface Props {
   data: Record<string, unknown>[];
@@ -9,7 +19,7 @@ interface Props {
 }
 
 export function BudgetChart(props: Props) {
-  const {data, xKey, yKey } = props;
+  const { data, xKey, yKey } = props;
   return (
     <ResponsiveContainer width="100%" height={400}>
       <BarChart
@@ -23,11 +33,14 @@ export function BudgetChart(props: Props) {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey={xKey} />
-        <YAxis />
+        <YAxis tickFormatter={formatShekels} />
         <Tooltip />
-        <Legend />
-        <Bar dataKey={yKey} fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />} />
+        <Bar
+          dataKey={yKey}
+          fill="#8884d8"
+          activeBar={<Rectangle fill="pink" stroke="blue" />}
+        />
       </BarChart>
     </ResponsiveContainer>
-  )
+  );
 }
